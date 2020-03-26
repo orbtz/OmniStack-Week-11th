@@ -12,7 +12,7 @@ const routes = require("./routes");
 const app = express();
 
 // Permite que programa use o módulo. Módulo vai deixar que as aplicações front end tenham acesso ao backend
-app.use(cors);
+app.use(cors( {} ));
 
 // Permite que o programa leia as requisições json
 app.use(express.json());

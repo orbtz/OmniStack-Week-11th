@@ -1,25 +1,17 @@
+// Importando o módulo do React
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+// Importando o css global
+import './global.css';
+
+// Importando o arquivo com a página de Logon
+import Routes from './routes';
+
+// Código com a criação o HTML na página
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello Guys!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes />
   );
 }
 
