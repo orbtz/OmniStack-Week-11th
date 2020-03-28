@@ -1,8 +1,8 @@
-// Utilizado para criptografias. Neste caso, vamos gerar um hash para o id da ong
-const crypto = require("crypto");
-
 // Importando o arquivo de conexão ao BD
 const connection = require("../database/connection");
+
+// Importando o módulo que trata a geração de IDs
+const generateUniqueId = require ('../../utils/generateUniqueId');
 
 // Exporta toda este módulo das rotas
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
         const {name, email, whatsapp, city, uf } = request.body;
     
         // Cria-se um hash com 4 caracteres randons, converte para string do tipo HEX
-        const id = crypto.randomBytes(4).toString("HEX");
+        const id = generateUniqueId();
     
         await connection("ongs").insert({
             id,

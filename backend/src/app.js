@@ -4,6 +4,9 @@ const express = require('express');
 // Importa o módulo de seguranã, que vai dizer quem pode acessar a aplicação
 const cors = require('cors');
 
+// Módulo que trata validações de dados. Usando em específico o que trata os erros
+const {errors} = require('celebrate')
+
 // Vai buscar o módulo de rotas no arquivo routes.js. Se utiliza ./ pois mostra que ele não é um
 // pacote, e sim um arquivo
 const routes = require("./routes");
@@ -20,5 +23,8 @@ app.use(express.json());
 // Lê e se utiliza das rotas criadas na pasta routes.js
 app.use(routes);
 
-//Arruma a porta para as rotas. Localhost :3333
-app.listen(3333);
+// Trata os erros, retorno de forma mais agradável
+app.use(errors());
+
+// Deixando ele a ser exportado para outros arquivos
+module.exports = app;
